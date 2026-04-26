@@ -10,71 +10,52 @@
 <style>
 body{margin:0;background:#0a1023;color:#fff;font-family:Arial}
 header,footer{text-align:center;padding:20px}
+
 .hero-title{font-size:30px;color:#00bfff;font-weight:bold}
 
 .products-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  padding:10px;
+display:grid;
+grid-template-columns:1fr;
+gap:15px;
+padding:20px;
 }
 
 @media(min-width:700px){
-  .products-grid{grid-template-columns:repeat(3,1fr)}
+.products-grid{grid-template-columns:repeat(3,1fr)}
 }
 
 .product-card{
-  background:#151a32;
-  padding:10px;
-  border-radius:12px;
-  text-align:center;
+background:#151a32;
+padding:15px;
+border-radius:15px;
+text-align:center;
 }
 
-.product-img{
-  width:80px;
-  height:80px;
-  object-fit:contain;
-}
-
-.product-card h3{
-  font-size:14px;
-  margin:6px 0;
-}
-
-.price{
-  color:#00bfff;
-  font-size:13px;
-  margin:4px 0;
-}
+.product-img{width:110px;height:110px;object-fit:contain}
 
 .order-btn,.submit-btn{
-  background:#00bfff;
-  border:none;
-  padding:7px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:bold;
-  width:100%;
-  font-size:12px;
+background:#00bfff;
+border:none;
+padding:10px;
+border-radius:12px;
+cursor:pointer;
+font-weight:bold;
+width:100%;
 }
 
+.price{color:#00bfff}
+
 .socials{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:10px;
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:10px;
 }
 
 .socials a{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  font-size:20px;
-  text-decoration:none;
+width:45px;height:45px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+color:#fff;font-size:20px;
 }
 
 .whatsapp{background:#25D366}
@@ -82,38 +63,30 @@ header,footer{text-align:center;padding:20px}
 .tiktok{background:#000}
 
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
 }
 
 .modal-content{
-  background:#11182d;
-  padding:20px;
-  border-radius:20px;
-  width:90%;
-  max-width:400px;
-}
-
-.close{
-  float:left;
-  font-size:24px;
-  cursor:pointer;
+background:#11182d;
+padding:20px;
+border-radius:20px;
+width:90%;
+max-width:400px;
 }
 
 input,select{
-  width:100%;
-  padding:10px;
-  margin:6px 0;
-  border-radius:10px;
-  border:1px solid #333;
-  background:#0a1023;
-  color:#fff;
-  box-sizing:border-box;
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:10px;
+border:1px solid #333;
+background:#0a1023;
+color:#fff;
 }
 </style>
 </head>
@@ -121,98 +94,91 @@ input,select{
 <body>
 
 <header>
-  <div class="hero-title">E&S STORE ⚡</div>
-  <p>أفضل منتجات Gaming في المغرب</p>
+<div class="hero-title">E&S STORE ⚡</div>
+<p>أفضل منتجات Gaming في المغرب</p>
 </header>
 
 <section>
-  <div class="products-grid" id="products-grid"></div>
+<div class="products-grid" id="products-grid"></div>
 </section>
 
 <footer>
-  <h3>E&S STORE</h3>
+<h3>E&S STORE</h3>
 
-  <div class="socials">
-    <a class="whatsapp" href="https://wa.me/212612345678" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <a class="instagram" href="https://instagram.com/YOUR_USERNAME" target="_blank">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <a class="tiktok" href="https://tiktok.com/@YOUR_USERNAME" target="_blank">
-      <i class="fa-brands fa-tiktok"></i>
-    </a>
-  </div>
+<div class="socials">
+<a class="whatsapp" href="https://wa.me/212612345678"><i class="fa-brands fa-whatsapp"></i></a>
+<a class="instagram" href="#"><i class="fa-brands fa-instagram"></i></a>
+<a class="tiktok" href="#"><i class="fa-brands fa-tiktok"></i></a>
+</div>
 </footer>
 
+<!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
+<div class="modal-content">
 
-    <h2>معلومات الطلب</h2>
+<h2>معلومات الطلب</h2>
 
-    <form id="form">
-      <input id="name" placeholder="الاسم الكامل" required>
-      <input id="phone" placeholder="رقم الهاتف" required>
-      <input id="city" placeholder="المدينة" required>
-      <input id="address" placeholder="العنوان" required>
+<form id="form">
+<input id="name" placeholder="الاسم الكامل" required>
+<input id="phone" placeholder="رقم الهاتف" required>
+<input id="city" placeholder="المدينة" required>
+<input id="address" placeholder="العنوان" required>
 
-      <select id="payment" required>
-        <option value="">طريقة الدفع</option>
-        <option>الدفع عند الاستلام</option>
-        <option>تحويل بنكي</option>
-      </select>
+<select id="payment" required>
+<option value="">طريقة الدفع</option>
+<option>الدفع عند الاستلام</option>
+<option>تحويل بنكي</option>
+</select>
 
-      <button class="submit-btn">إرسال الطلب</button>
-    </form>
-  </div>
+<button class="submit-btn">إرسال الطلب</button>
+</form>
+
+</div>
 </div>
 
 <script>
 const products=[
-  {name:"AirPods Pro 2",price:"149 MAD",img:"https://macoque.ma/wp-content/uploads/2023/03/b7296989-7e5a-42e4-90ad-c6001958f89d.jpg"},
-  {name:"AirPods Max",price:"199 MAD",img:"https://appledeals.ma/wp-content/uploads/2022/12/airpods_max_space_gray_pdp_image_position-2_en-1.jpg"},
-  {name:"Speaker LED",price:"149 MAD",img:"https://cdn.youcan.shop/stores/12ce020b9ba838788fd2288c7997c614/others/S26ci4Jgx1AkRiWRGSmzKH5aKKkDhaH8wtgyZII7.jpg"},
-  {name:"AirPods 3",price:"149 MAD",img:"https://cdn.nakamastore.ma/5097-ps5-dualsense"},
-  {name:"S40 PRO MAX",price:"149 MAD",img:"https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/26/084376/1.jpg"},
-  {name:"Pack SmartWatch + AirPods",price:"199 MAD",img:"https://cdnprd.marjanemall.ma/cn0picture0products0mm/AABIZ16370_img3.webp"}
+{name:"AirPods Pro 2",price:"149 MAD",img:"https://macoque.ma/wp-content/uploads/2023/03/b7296989-7e5a-42e4-90ad-c6001958f89d.jpg"},
+{name:"AirPods Max",price:"199 MAD",img:"https://appledeals.ma/wp-content/uploads/2022/12/airpods_max_space_gray_pdp_image_position-2_en-1.jpg"},
+{name:"Speaker LED",price:"149 MAD",img:"https://cdn.youcan.shop/stores/12ce020b9ba838788fd2288c7997c614/others/S26ci4Jgx1AkRiWRGSmzKH5aKKkDhaH8wtgyZII7.jpg"},
+{name:"AirPods 3",price:"149 MAD",img:"https://cdn.nakamastore.ma/5097-ps5-dualsense"},
+{name:"S40 PRO MAX",price:"149 MAD",img:"https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/26/084376/1.jpg"},
+{name:"Pack SmartWatch + AirPods",price:"199 MAD",img:"https://cdnprd.marjanemall.ma/cn0picture0products0mm/AABIZ16370_img3.webp"}
 ];
 
-const whatsappNumber="212612345678";
 const grid=document.getElementById("products-grid");
 const modal=document.getElementById("modal");
 
-products.forEach((p)=>{
-  grid.innerHTML+=`
-    <div class="product-card">
-      <img src="${p.img}" class="product-img" alt="${p.name}">
-      <h3>${p.name}</h3>
-      <p class="price">${p.price}</p>
-      <button class="order-btn" onclick="openModal()">اطلب الآن</button>
-    </div>`;
+products.forEach((p,i)=>{
+grid.innerHTML+=`
+<div class="product-card">
+<img src="${p.img}" class="product-img">
+<h3>${p.name}</h3>
+<p class="price">${p.price}</p>
+<button class="order-btn" onclick="openModal(${i})">اطلب الآن</button>
+</div>`;
 });
 
 function openModal(){
-  modal.style.display="flex";
-}
-
-function closeModal(){
-  modal.style.display="none";
+modal.style.display="flex";
 }
 
 document.getElementById("form").addEventListener("submit",function(e){
-  e.preventDefault();
+e.preventDefault();
 
-  const name=document.getElementById("name").value;
-  const phone=document.getElementById("phone").value;
-  const city=document.getElementById("city").value;
-  const address=document.getElementById("address").value;
-  const payment=document.getElementById("payment").value;
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
+const city=document.getElementById("city").value;
+const address=document.getElementById("address").value;
+const payment=document.getElementById("payment").value;
 
-  const orderId="ES-"+Math.floor(100000+Math.random()*900000);
-  const date=new Date().toLocaleString();
+// رقم طلب
+const orderId="ES-"+Math.floor(100000+Math.random()*900000);
 
-  const msg=
+// تاريخ
+const date=new Date().toLocaleString();
+
+const msg=
 `🛒 طلب جديد
 
 📦 رقم الطلب: ${orderId}
@@ -224,7 +190,7 @@ document.getElementById("form").addEventListener("submit",function(e){
 📍 ${address}
 💳 ${payment}`;
 
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`,"_blank");
+window.open(`https://wa.me/212612345678?text=${encodeURIComponent(msg)}`);
 });
 </script>
 
